@@ -116,4 +116,16 @@ GET /_search
   }
 }
 ```
+
 # 7) Contar cuantos restaurantes hay por los diferentes tipos de flags (CRITICAL FLAG)
+```elasticsearch
+GET /_search
+{
+  "size": 0,
+  "aggs": {
+    "flags":{
+      "terms": {"field": "CRITICAL FLAG"}
+    }
+  }
+}
+```
