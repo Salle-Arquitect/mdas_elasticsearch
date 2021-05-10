@@ -1,3 +1,12 @@
+# 1) ¿Cuántos restaurantes hay en el index de `nyc_restaurants_inspection` y el de `amazon_reviews`?
+```elasticsearch
+GET /nyc_restaurants_inspection/_count
+
+```
+- `nyc_restaurants_inspection` = 383726
+- `amazon_reviews` = 1248
+
+
 # 2) Busca los restaurantes donde sirvan Seafood con match.
 ```elasticsearch
 GET /_search
@@ -79,7 +88,7 @@ GET /_search
 {
   "size": 0,
   "aggs": {
-    "by_boro":{
+    "boros":{
       "terms": {"field": "BORO"}
     }
   },
@@ -92,6 +101,19 @@ GET /_search
 ```
 
 # 6) Mostrar cuantas inspecciones hay por año (INSPECTION DATE), solo mostrar los años que tengan como mínimo una inspección por año.
-
-
-7. Contar cuantos restaurantes hay por los diferentes tipos de flags (CRITICAL
+```elasticsearch
+GET /_search
+{
+  "size": 1,
+  "aggs": {
+    "anyos": {
+      "date_histogram": {
+        "field": "INSPECTION DATE",
+        "interval": "year",
+        "min_doc_count": 1
+      }
+    }
+  }
+}
+```
+# 7) Contar cuantos restaurantes hay por los diferentes tipos de flags (CRITICAL FLAG)
