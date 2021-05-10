@@ -131,5 +131,40 @@ GET /_search
 ```
 
 # 8) Elimina los restaurantes del BORO MANHATTAN
+```elasticsearch
+GET /_search
+{
+  "query": {
+    "match": {
+      "BORO": "MANHATTAN"
+    }
+  }
+}
+```
+Hay 10 de manhattan
+
+
+```elasticsearch
+POST /nyc_restaurants_inspection/_delete_by_query
+{
+  "query": {
+    "match": {
+      "BORO": "MANHATTAN"
+    }
+  }
+}
+```
+
+```elasticsearch
+GET /_search
+{
+  "query": {
+    "match": {
+      "BORO": "MANHATTAN"
+    }
+  }
+}
+```
+Ahora dice que no hay nada.
 
 # 9) Dado el index `amazon_reviews` realiza una query que cumpla que exista un producto con una review que tenga rating=5 y doRecomend=FALSE. Fijarse que devuelva los valores esperados y fijarse en el mapping actual que tiene el índice, es posible que sea necesario reindexar.
