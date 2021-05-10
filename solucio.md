@@ -129,3 +129,7 @@ GET /_search
   }
 }
 ```
+
+# 8) Elimina los restaurantes del BORO MANHATTAN
+
+# 9) Dado el index `amazon_reviews` realiza una query que cumpla que exista un producto con una review que tenga rating=5 y doRecomend=FALSE. Fijarse que devuelva los valores esperados y fijarse en el mapping actual que tiene el índice, es posible que sea necesario reindexar.
