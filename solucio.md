@@ -1,7 +1,7 @@
 # 1) ¿Cuántos restaurantes hay en el index de `nyc_restaurants_inspection` y el de `amazon_reviews`?
 ```elasticsearch
 GET /nyc_restaurants_inspection/_count
-
+GET /amazon_reviews/_count
 ```
 - `nyc_restaurants_inspection` = 383726
 - `amazon_reviews` = 1248
